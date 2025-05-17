@@ -1,0 +1,87 @@
+/* Asegura que el body y html ocupen el 100% de la altura y no generen scroll */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Elimina el scroll innecesario */
+    background-color: #f5f5f5;
+}
+
+.login-container {
+    display: flex;
+    height: 100vh; /* Usa el 100% del alto visible del navegador */
+    overflow: hidden;
+}
+
+.login-left {
+    flex: 1;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 80px;
+    overflow: hidden;
+}
+
+.login-right {
+    flex: 1.5;
+    background-color: #0f0f0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.login-form {
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.form-control {
+    background-color: #e2e2e2;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.btn-primary {
+    background-color: #3b82f6;
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+}
+
+.text-link {
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.text-link a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.text-link a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    max-width: 500px;
+}
