@@ -1,77 +1,82 @@
 @extends('layouts.app')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+{{-- @section('content') --}}
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+<!-- Enlace al CSS personalizado -->
+<link rel="stylesheet" href="{{ asset('css/register.css') }}">
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+<div class="register-wrapper">
+    <div class="register-container">
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <!-- Encabezado con logo -->
+        <div class="register-header">
+            <img src="{{ asset('images/Logo2.png') }}" alt="Logo Banca Digital" class="logo">
         </div>
+
+        <!-- Formulario de registro -->
+        <form method="POST" action="{{ route('register') }}" class="register-form">
+            @csrf
+
+            <!-- NUEVO CONTENEDOR -->
+            <div class="form-inner">
+
+                <!-- Nombres y Apellidos -->
+                <div class="form-row">
+                    <input type="text" name="nombres" placeholder="Nombres" value="{{ old('nombres') }}" required>
+                    <input type="text" name="apellidos" placeholder="Apellidos" value="{{ old('apellidos') }}"
+                        required>
+                </div>
+
+                <!-- Tipo de documento y número -->
+                <div class="form-row">
+                    <select name="tipo_documento" required>
+                        <option value="" disabled selected>Tipo de documento</option>
+                        <option value="DNI">DNI</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                        <option value="Cédula">Cédula</option>
+                    </select>
+
+                    <input type="text" name="numero_documento" placeholder="Nº de documento"
+                        value="{{ old('numero_documento') }}" required>
+                </div>
+
+                <!-- Fecha de nacimiento y teléfono -->
+                <div class="form-row">
+                    <input type="date" name="fecha_nacimiento" required>
+
+                    <div class="phone-group">
+                        <select name="cod_pais" required>
+                            <option value="0">0</option>
+                            <option value="57">+51</option>
+                            <option value="1">+1</option>
+                            <!-- Agrega más códigos si deseas -->
+                        </select>
+                        <input type="text" name="telefono" placeholder="Teléfono" value="{{ old('telefono') }}"
+                            required>
+                    </div>
+                </div>
+                <br>
+                <!-- Correo -->
+                <!-- Correo -->
+                <div class="form-row">
+                    <input type="email" name="email" placeholder="Correo" value="{{ old('email') }}" required>
+                </div>
+
+
+                <!-- Contraseñas -->
+                <div class="form-row">
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                    <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required>
+                </div>
+
+                <!-- Botones -->
+                <div class="form-buttons">
+                    <button type="submit" class="btn-submit">Enviar</button>
+                    <a href="{{ route('login') }}" class="btn-cancel">Cancelar</a>
+                </div>
+        </form>
     </div>
 </div>
-@endsection
+
+{{-- @endsection --}}
