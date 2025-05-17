@@ -16,7 +16,27 @@ class TransaccioneController extends Controller
      */
     public function index(Request $request): View
     {
-        $transacciones = Transaccione::paginate();
+        $desde = $request->input('desde');
+        $hasta = $request->input('hasta');
+        $estado = $request->input('estado');
+
+        $query = Transaccione::query();
+
+        // Filtrar por fecha de envío
+        if ($desde) {
+            $query->whereDate('Fecha_envio', '>=', $desde);
+        }
+
+        if ($hasta) {
+            $query->whereDate('Fecha_envio', '<=', $hasta);
+        }
+
+        // Filtrar por estado
+        if ($estado) {
+            $query->where('Estado', $estado);
+        }
+
+        $transacciones = $query->paginate();
 
         return view('transaccione.index', compact('transacciones'))
             ->with('i', ($request->input('page', 1) - 1) * $transacciones->perPage());

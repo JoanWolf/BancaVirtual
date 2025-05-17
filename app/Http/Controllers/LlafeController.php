@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\JsonResponse;
 use App\Models\Llafe;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\LlafeRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-
+use Illuminate\App\Models\User;
+use Illuminate\Support\Str;
 class LlafeController extends Controller
 {
     /**
@@ -81,4 +82,31 @@ class LlafeController extends Controller
         return Redirect::route('llaves.index')
             ->with('success', 'Llafe deleted successfully');
     }
+
+
+public function buscarPorValor(Request $request)
+{
+    $valor = $request->input('valor');
+
+    $llafe = Llafe::where('valor', $valor)->with('user')->first();
+
+    if (!$llafe || !$llafe->user) {
+        return response()->json(['error' => 'Llave o propietario no encontrado'], 404);
+    }
+
+    $nombre = $llafe->user->Nombre ?? '';
+    $apellido = $llafe->user->Apellido ?? ''; // Asegúrate que ese campo exista
+    $valor = $llafe->Valor ?? ''; // Asegúrate que ese campo exista
+
+    // Enmascarar los datos
+    $nombreProtegido = Str::limit($nombre, 4, str_repeat('*', max(0, strlen($nombre) - 4)));
+    $apellidoProtegido = Str::limit($apellido, 4, str_repeat('*', max(0, strlen($apellido) - 4)));
+
+    return response()->json([
+        'nombre' => $nombreProtegido,
+        'apellido' => $apellidoProtegido,
+        'valor' => $valor,
+    ]);
+}
+
 }

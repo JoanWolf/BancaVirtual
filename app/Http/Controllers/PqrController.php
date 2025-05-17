@@ -16,7 +16,22 @@ class PqrController extends Controller
      */
     public function index(Request $request): View
     {
-        $pqrs = Pqr::paginate();
+        $desde = $request->input('desde');
+        $hasta = $request->input('hasta');
+
+        $query = Pqr::query();
+
+        // Si hay fecha "desde", filtramos desde esa fecha
+        if ($desde) {
+            $query->whereDate('Fecha_Envio', '>=', $desde);
+        }
+
+        // Si hay fecha "hasta", filtramos hasta esa fecha
+        if ($hasta) {
+            $query->whereDate('Fecha_Envio', '<=', $hasta);
+        }
+
+        $pqrs = $query->paginate();
 
         return view('pqr.index', compact('pqrs'))
             ->with('i', ($request->input('page', 1) - 1) * $pqrs->perPage());

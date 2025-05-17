@@ -18,9 +18,18 @@
         </div>
         <div class="form-group mb-2 mb20">
             <label for="fecha__nacimiento" class="form-label">{{ __('Fecha Nacimiento') }}</label>
-            <input type="text" name="Fecha_Nacimiento" class="form-control @error('Fecha_Nacimiento') is-invalid @enderror" value="{{ old('Fecha_Nacimiento', $user?->Fecha_Nacimiento) }}" id="fecha__nacimiento" placeholder="Fecha Nacimiento">
+            <input
+                type="date"
+                name="Fecha_Nacimiento"
+                class="form-control @error('Fecha_Nacimiento') is-invalid @enderror"
+                value="{{ old('Fecha_Nacimiento', $user?->Fecha_Nacimiento) }}"
+                id="fecha__nacimiento"
+                placeholder="Fecha Nacimiento"
+                max="{{ \Carbon\Carbon::now()->subYears(13)->format('Y-m-d') }}" {{-- Limita selección a mayores de 13 --}}
+                required>
             {!! $errors->first('Fecha_Nacimiento', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
         </div>
+
         <div class="form-group mb-2 mb20">
             <label for="tipo__documento" class="form-label">{{ __('Tipo Documento') }}</label>
             <input type="text" name="Tipo_Documento" class="form-control @error('Tipo_Documento') is-invalid @enderror" value="{{ old('Tipo_Documento', $user?->Tipo_Documento) }}" id="tipo__documento" placeholder="Tipo Documento">

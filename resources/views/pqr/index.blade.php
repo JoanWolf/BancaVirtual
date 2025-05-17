@@ -28,6 +28,20 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+<form method="GET" action="{{ route('pqrs.index') }}">
+    <div>
+        <label for="desde">Desde:</label>
+        <input type="date" name="desde" id="desde" value="{{ request('desde') }}">
+    </div>
+
+    <div>
+        <label for="hasta">Hasta:</label>
+        <input type="date" name="hasta" id="hasta" value="{{ request('hasta') }}">
+    </div>
+
+    <button type="submit">Filtrar</button>
+    <a href="{{ route('pqrs.index') }}">Limpiar</a>
+</form>
 
                     <div class="card-body bg-white">
                         <div class="table-responsive">
@@ -35,7 +49,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 									<th >Asunto</th>
 									<th >Fecha Envio</th>
 									<th >Estado</th>
@@ -51,7 +65,7 @@
                                     @foreach ($pqrs as $pqr)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 										<td >{{ $pqr->Asunto }}</td>
 										<td >{{ $pqr->Fecha_Envio }}</td>
 										<td >{{ $pqr->Estado }}</td>
