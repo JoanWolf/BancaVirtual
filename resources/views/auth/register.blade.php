@@ -48,7 +48,7 @@
                     <div class="phone-group">
                         <select name="cod_pais" required>
                             <option value="0">0</option>
-                            <option value="57">+51</option>
+                            <option value="57">+57</option>
                             <option value="1">+1</option>
                             <!-- Agrega más códigos si deseas -->
                         </select>
