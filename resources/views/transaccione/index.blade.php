@@ -28,6 +28,25 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+<form method="GET" action="{{ route('transacciones.index') }}">
+    <label for="desde">Desde:</label>
+    <input type="date" name="desde" value="{{ request('desde') }}">
+
+    <label for="hasta">Hasta:</label>
+    <input type="date" name="hasta" value="{{ request('hasta') }}">
+
+    <label for="estado">Estado:</label>
+    <select name="estado">
+        <option value="">-- Todos --</option>
+        <option value="Exitosa" {{ request('estado') == 'Exitosa' ? 'selected' : '' }}>Exitosa</option>
+        <option value="Pendiente" {{ request('estado') == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
+        <option value="Fallida" {{ request('estado') == 'Fallida' ? 'selected' : '' }}>Fallida</option>
+        <option value="Revertida" {{ request('estado') == 'Revertida' ? 'selected' : '' }}>Revertida</option>
+    </select>
+
+    <button type="submit">Filtrar</button>
+    <a href="{{ route('transacciones.index') }}">Limpiar</a>
+</form>
 
                     <div class="card-body bg-white">
                         <div class="table-responsive">
@@ -35,7 +54,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 									<th >Llave Fk</th>
 									<th >Fecha Envio</th>
 									<th >Monto</th>
@@ -52,7 +71,7 @@
                                     @foreach ($transacciones as $transaccione)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 										<td >{{ $transaccione->llave_fk }}</td>
 										<td >{{ $transaccione->Fecha_Envio }}</td>
 										<td >{{ $transaccione->Monto }}</td>
