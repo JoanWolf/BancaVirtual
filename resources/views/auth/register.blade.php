@@ -49,7 +49,7 @@
                         <select name="cod_pais" required>
                             <option value="0">0</option>
                             <option value="57">+57</option>
-                            <option value="1">+1</option>
+                            <option value="2">+2</option>
                             <!-- Agrega más códigos si deseas -->
                         </select>
                         <input type="text" name="telefono" placeholder="Teléfono" value="{{ old('telefono') }}"
