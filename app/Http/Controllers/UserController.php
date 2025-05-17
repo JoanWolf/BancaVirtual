@@ -16,7 +16,21 @@ class UserController extends Controller
      */
     public function index(Request $request): View
     {
-        $users = User::paginate();
+        // Obtenemos los valores del filtro (pueden venir vacíos)
+        $estado = $request->input('estado');
+        $tipoDocumento = $request->input('tipo_documento');
+         // Construimos la consulta
+        $query = User::query();
+        if (!is_null($estado)) {
+            $query->where('Estado', $estado);
+        }
+
+        if (!is_null($tipoDocumento)) {
+            $query->where('Tipo_Documento', $tipoDocumento);
+        }
+
+        $users = $query->paginate();
+        //$users = User::paginate();
 
         return view('user.index', compact('users'))
             ->with('i', ($request->input('page', 1) - 1) * $users->perPage());

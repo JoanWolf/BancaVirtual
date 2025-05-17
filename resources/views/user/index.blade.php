@@ -28,6 +28,29 @@
                             <p>{{ $message }}</p>
                         </div>
                     @endif
+<form method="GET" action="{{ route('users.index') }}">
+    <div>
+        <label for="estado">Estado:</label>
+        <select name="estado" id="estado">
+            <option value="">Todos</option>
+            <option value="1" {{ request('estado') === '1' ? 'selected' : '' }}>Activo</option>
+            <option value="0" {{ request('estado') === '0' ? 'selected' : '' }}>Inactivo</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="tipo_documento">Tipo de Documento:</label>
+        <select name="tipo_documento" id="tipo_documento">
+            <option value="">Todos</option>
+            <option value="CC" {{ request('tipo_documento') === 'CC' ? 'selected' : '' }}>CC</option>
+            <option value="TI" {{ request('tipo_documento') === 'TI' ? 'selected' : '' }}>TI</option>
+            <option value="CE" {{ request('tipo_documento') === 'CE' ? 'selected' : '' }}>CE</option>
+            <!-- Agrega más si los necesitas -->
+        </select>
+    </div>
+
+    <button type="submit">Filtrar</button>
+</form>
 
                     <div class="card-body bg-white">
                         <div class="table-responsive">
@@ -35,7 +58,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 									<th >N Documento</th>
 									<th >Nombre</th>
 									<th >Apellido</th>
@@ -54,7 +77,7 @@
                                     @foreach ($users as $user)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 										<td >{{ $user->N_Documento }}</td>
 										<td >{{ $user->Nombre }}</td>
 										<td >{{ $user->Apellido }}</td>
