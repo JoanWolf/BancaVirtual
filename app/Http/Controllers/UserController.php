@@ -19,7 +19,7 @@ class UserController extends Controller
         // Obtenemos los valores del filtro (pueden venir vacíos)
         $estado = $request->input('estado');
         $tipoDocumento = $request->input('tipo_documento');
-         // Construimos la consulta
+        // Construimos la consulta
         $query = User::query();
         if (!is_null($estado)) {
             $query->where('Estado', $estado);
@@ -51,7 +51,14 @@ class UserController extends Controller
      */
     public function store(UserRequest $request): RedirectResponse
     {
-        User::create($request->validated());
+        $data = $request->validated();
+
+        // Asignar valores por defecto si no vienen en la solicitud
+        $data['Rol'] = $data['Rol'] ?? 'user';
+        $data['Saldo'] = $data['Saldo'] ?? 0;
+        $data['Estado'] = $data['Estado'] ?? 1;
+
+        User::create($data);
 
         return Redirect::route('users.index')
             ->with('success', 'User created successfully.');

@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -49,9 +49,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'Nombre' => 'required',
+            'Apellido' => 'required',
+            'Tipo_Documento' => 'required',
+            'N_Documento' => 'required',
+            'Fecha_Nacimiento' => 'required|date',
+            'Telefono' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
     }
 
@@ -63,10 +68,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
-            'name' => $data['name'],
+            'Nombre' => $data['Nombre'],
+            'Apellido' => $data['Apellido'],
+            'Tipo_Documento' => $data['Tipo_Documento'],
+            'N_Documento' => $data['N_Documento'],
+            'Fecha_Nacimiento' => $data['Fecha_Nacimiento'],
+            'Telefono' => $data['Telefono'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'Rol' => 'user',       // Valor por defecto
+            'Saldo' => 0,          // Valor por defecto
+            'Estado' => 1          // Valor por defecto
         ]);
     }
 }
