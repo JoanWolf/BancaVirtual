@@ -28,9 +28,6 @@ class UserRequest extends FormRequest
 			'Fecha_Nacimiento' => 'required',
 			'Tipo_Documento' => 'required|string',
 			'Telefono' => 'required|string',
-			'Rol' => 'required|string',
-			'Estado' => 'required',
-			'Saldo' => 'required',
 			'email' => 'required|string',
             'password' => 'required|string',
 
