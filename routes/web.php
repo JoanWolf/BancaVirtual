@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Mail;
 
 // Página de bienvenida
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 // Autenticación
