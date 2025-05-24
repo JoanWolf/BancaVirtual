@@ -25,7 +25,9 @@ class HomeController extends Controller
     public function index()
     {
         // return view('home');
-        return view('home', ['subview' => 'dashboard']);
+        $saldo = Auth::user()->Saldo; // Obtenemos el saldo del usuario logueado
+        //return view('dashboard', ); // Pasamos el saldo a la vista
+        return view('home', ['subview' => 'dashboard', 'saldo' => $saldo]);
     }
 
 
