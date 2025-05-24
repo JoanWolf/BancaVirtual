@@ -1,0 +1,88 @@
+/* public/css/recibo.css */
+
+.recibo-container {
+    padding: 30px;
+    background-color: #f3f3f3;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.recibo-title {
+    font-size: 28px;
+    color: #333;
+    margin-left: -40%;
+    margin-bottom: 20px;
+}
+
+.recibo-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    width: 200%;
+    max-width: 500px;
+    margin-left: -40%;
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    gap: 15px;
+}
+
+.recibo-card h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.recibo-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px 40px;
+}
+.recibo-grid span {
+    text-align: right;
+    display: block;
+}
+
+
+.recibo-botones {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn-descargar {
+    margin-top: 20px;
+    background-color: #c9302c;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-descargar:hover {
+    background-color: #d9534f;
+}
+
+.btn-listo {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-listo:hover {
+    background-color: #337ab7;
+}

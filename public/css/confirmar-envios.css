@@ -1,0 +1,76 @@
+.envios-container {
+    padding: 30px;
+    background-color: #f3f3f3;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-left: -58.6%;
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+.envios-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    width: 300%;
+    max-width: 600px;
+    margin-left: -58%;
+    height: 320px; /* <- Tamaño fijo, ajusta según prefieras */
+    /* overflow-y: auto; Scroll  */
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btn-volver {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.datos-envio p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #444;
+}
+
+.btn-continuar {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 20px;         /* Igual que .btn-volver */
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;           /* Asegura consistencia (puedes omitir si ya es igual) */
+    font-family: inherit;      /* Hereda la fuente definida en el contenedor */
+}
+
+
+.btn-continuar:hover {
+    background-color: #0056b3;
+}

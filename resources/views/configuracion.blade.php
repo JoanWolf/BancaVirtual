@@ -1,24 +1,18 @@
-@extends('layouts.app')
+
 
 {{--@section('content')--}}
 
 <!-- Enlace al CSS personalizado -->
-<link rel="stylesheet" href="{{ asset('css/register.css') }}">
+<link rel="stylesheet" href="{{ asset('css/configuracion.css') }}">
 
 <!-- Formulario de registro -->
         <form method="POST" action="{{ route('register') }}" >
             @csrf
-<div class="register-wrapper">
+
+    <h1 class="config-title">Configuración</h1>
+
     <div class="register-container">
-
-        <!-- Encabezado con logo -->
-        <div class="register-header">
-            <img src="{{ asset('images/Logo2.png') }}" alt="Logo Banca Digital" class="logo">
-        </div>
-
-
-
-            <!-- NUEVO CONTENEDOR -->
+    
             <div class="form-inner">
 
                 <!-- Nombres y Apellidos -->
@@ -93,7 +87,7 @@
                     <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" id="password" placeholder="password">
                     {!! $errors->first('password', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
 
-                    <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" value="{{ old('password_confirmation') }}" id="password_confirmation" placeholder="password confirmacion">
+                    <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" value="{{ old('password_confirmation') }}" id="password_confirmation" placeholder="password confirmation">
                     {!! $errors->first('password_confirmation', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
                     <!-- <input type="password" name="password" placeholder="Contraseña" required>
                     <input type="password" name="password_confirmation" placeholder="Confirmar Contraseña" required> -->
@@ -106,6 +100,6 @@
                 </div>
 
     </div>
-</div>
+
 </form>
 {{--@endsection--}}

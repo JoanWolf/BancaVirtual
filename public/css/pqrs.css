@@ -1,0 +1,83 @@
+.pqrs-container {
+    padding: 30px;
+    background-color: #f3f3f3;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.pqrs-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    width: 250%;
+    max-width: 800px;
+    margin-left: -90%;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    color: #333;
+    margin-left: -90%;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.form-group select,
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    background: transparent;
+    outline: none;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+#descripcion {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    resize: none;
+    height: 100px;
+    margin-top: 15px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+
+.btn-enviar {
+    background-color: #666;
+    color: white;
+    padding: 9px 15px;
+    width: fit-content;       /* Para ajustar automáticamente al contenido */
+    max-width: 100%;          /* Que nunca se pase del ancho del contenedor */
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+    margin-top: 15px;
+    text-decoration: none;    /* Elimina el subrayado */
+    display: inline-block;    /* Importante para <a> con estilo de botón */
+    text-align: center;
+
+    cursor: not-allowed;
+}

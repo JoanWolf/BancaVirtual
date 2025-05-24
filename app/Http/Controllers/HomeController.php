@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,45 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        // return view('home');
+        return view('home', ['subview' => 'dashboard']);
+    }
+
+
+    public function registroLlaves()
+    {
+        return view('home', ['subview' => 'registro-llaves']);
+    }
+
+    public function llavesRegistradas()
+    {
+        return view('home', ['subview' => 'llaves-registradas']);
+    }
+
+    public function envios()
+    {
+        return view('home', ['subview' => 'envios']);
+    }
+
+    public function confirmarEnvios()
+    {
+        return view('home', ['subview' => 'confirmar-envios']);
+    }
+
+    public function reciboEnvio()
+    {
+        return view('home', ['subview' => 'recibo']);
+    }
+
+
+
+    public function configuracion()
+    {
+        return view('home', ['subview' => 'configuracion']);
+    }
+
+    public function pqrs()
+    {
+        return view('home', ['subview' => 'pqrs']);
     }
 }

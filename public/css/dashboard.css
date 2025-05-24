@@ -1,0 +1,21 @@
+/* Tarjeta centrada más arriba */
+.balance-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 80px;
+    text-align: center;
+}
+
+.balance-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.balance-value {
+    font-size: 24px;
+    color: #333;
+}

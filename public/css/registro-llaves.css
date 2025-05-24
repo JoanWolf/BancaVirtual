@@ -1,0 +1,82 @@
+.registro-llaves-container {
+    padding: 30px;
+    background-color: #f3f3f3;
+    min-height: 50vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+    margin-left: -30%;
+}
+
+.llaves-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    width: 200%;
+    max-width: 600px;
+    margin-left: -30%;
+    height: 320px; /* <- Tamaño fijo, ajusta según prefieras */
+    /* overflow-y: auto; Scroll  */
+}
+
+
+
+.titulo {
+    color: #3f51b5;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 25px;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.llaves-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.llave-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.etiqueta {
+    width: 150px;
+    font-weight: 600;
+    color: #444;
+}
+
+.valor {
+    flex: 1;
+    color: #222;
+    margin-left: 10px;
+}
+
+input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-continuar {
+    background-color: #666;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-continuar:hover {
+    background-color: #444;
+}

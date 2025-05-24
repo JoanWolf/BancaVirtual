@@ -1,0 +1,63 @@
+/* public/css/llaves-registradas.css */
+
+.llaves-registradas-container {
+    padding: 30px;
+    background-color: #f3f3f3;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+    margin-left: -48.2%;
+}
+
+
+.llaves-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    width: 200%;
+    max-width: 600px;
+    margin-left: -48.3%; /* Igual que registro-llaves */
+    height: 320px;      /* Igual que registro-llaves */
+    /* overflow-y: auto; */
+}
+
+h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.volver-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.btn-volver {
+    background-color: #d9534f;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-volver:hover {
+    background-color: #c9302c;
+}
