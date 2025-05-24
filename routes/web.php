@@ -35,6 +35,8 @@ Route::get('/recibo-envio', [App\Http\Controllers\HomeController::class, 'recibo
 Route::get('/configuracion', [App\Http\Controllers\HomeController::class, 'configuracion'])->name('configuracion')->middleware('auth');
 Route::get('/pqrs', [App\Http\Controllers\HomeController::class, 'pqrs'])->name('pqrs');
 
+//POST
+Route::post('/llaves/guardar-formulario', [App\Http\Controllers\LlafeController::class, 'storeFromFormulario'])->name('llaves.guardarDesdeFormulario');
 
 
 

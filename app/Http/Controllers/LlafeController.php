@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 class LlafeController extends Controller
 {
     /**
@@ -38,10 +39,26 @@ class LlafeController extends Controller
      */
     public function store(LlafeRequest $request): RedirectResponse
     {
-        Llafe::create($request->validated());
+        $user = Auth::user();
+    $valor = $request->input('valor');
 
-        return Redirect::route('llaves.index')
-            ->with('success', 'Llafe created successfully.');
+    // Verificar si la llave ya existe
+    $existe = Llafe::where('valor', $valor)->exists();
+    if ($existe) {
+        return Redirect::back()->withErrors(['La llave ya ha sido registrada.']);
+    }
+
+    Llafe::create([
+        'valor' => $valor,
+        'id_propietario_fk' => $user->id,
+    ]);
+
+    return redirect()->route('llaves-registradas')
+        ->with('success', 'Llave registrada exitosamente.');
+        // Llafe::create($request->validated());
+
+        // return Redirect::route('llaves.index')
+        //     ->with('success', 'Llafe created successfully.');
     }
 
     /**
@@ -79,8 +96,11 @@ class LlafeController extends Controller
     {
         Llafe::find($id)->delete();
 
-        return Redirect::route('llaves.index')
-            ->with('success', 'Llafe deleted successfully');
+        // Redirigir a la página anterior con un mensaje flash de éxito
+    return redirect()->back()->with('success', 'Llave eliminada correctamente');
+
+        // return Redirect::route('llaves.index')
+        //     ->with('success', 'Llafe deleted successfully');
     }
 
 
@@ -109,4 +129,33 @@ public function buscarPorValor(Request $request)
     ]);
 }
 
+public function storeFromFormulario(Request $request)
+{
+    $user = Auth::user();
+
+    $datos = explode('|', $request->input('llave_seleccionada'));
+
+    if (count($datos) !== 2) {
+        return back()->withErrors(['error' => 'Datos de la llave invalidos']);
+    }
+
+    $tipo = $datos[0];
+    $valor = $datos[1];
+
+    // Validar que no exista
+    if (Llafe::where('valor', $valor)->exists()) {
+        return back()->withErrors(['error' => 'Esta llave ya ha sido registrada.']);
+    }
+
+    Llafe::create([
+        'Id_Propietario_fk' => $user->id,
+        'Valor' => $valor,
+        'Tipo' => $tipo,
+    ]);
+
+    return redirect()->route('llaves-registradas')->with('success', 'Llave registrada exitosamente.');
 }
+
+}
+
+

@@ -8,6 +8,6 @@
     <p class="balance-title">Saldo Disponible</p>
     <div class="balance-value">
         <i class="fas fa-dollar-sign"></i>
-        <span>{{ $saldo }}</span>
+        <span>${{ number_format($saldo, 0, ',', '.') }}</span>
     </div>
 </div>
