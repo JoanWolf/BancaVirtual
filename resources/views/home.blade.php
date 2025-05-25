@@ -23,9 +23,8 @@
             <li><a href="{{ route('registro-llaves') }}"><i class="fas fa-key"></i> Llaves</a></li>
             <li><a href="{{ route('envios') }}"><i class="fas fa-paper-plane"></i> Envíos</a></li>
             <li><a href="{{ route('configuracion') }}"><i class="fas fa-cog"></i> Configuración</a></li>
-            <li><a href="{{ route('pqrs') }}"><i class="fas fa-envelope"></i> PQRS
-    </a>
-</li>
+            <li><a href="{{ route('pqrs') }}"><i class="fas fa-envelope"></i> PQRS</a></li>
+            <li><a href="{{ route('users') }}"><i class="fas fa-chart-line"></i> Users</a></li>
 
         </ul>
     </div>
