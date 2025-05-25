@@ -56,3 +56,8 @@ Route::post('/confirmar-envios', [App\Http\Controllers\TransaccionController::cl
 Route::post('/procesar-envio', [App\Http\Controllers\TransaccionController::class, 'procesarEnvio'])->name('procesar-envio');
 Route::get('/recibo-envio/{transaccion}', [App\Http\Controllers\TransaccionController::class, 'reciboEnvio'])->name('recibo-envio');
 Route::get('/recibo-envio/{transaccion}/pdf', [App\Http\Controllers\TransaccionController::class, 'descargarReciboPDF'])->name('recibo-envio.pdf');
+
+
+Route::put('/configuracion/actualizar', [App\Http\Controllers\ConfiguracionController::class, 'update'])
+    ->name('config.update')
+    ->middleware('auth');
