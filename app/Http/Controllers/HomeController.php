@@ -127,8 +127,9 @@ class HomeController extends Controller
 
     public function createUser()
     {
+        $user = new User();
         return view('home', [
-            'subview' => 'user.create'
+            'subview' => 'user.create','user'=> $user
         ]);
     }
 
