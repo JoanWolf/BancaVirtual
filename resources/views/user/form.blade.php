@@ -3,7 +3,7 @@
 <div class="row padding-1 p-1">
     <div class="col-md-12">
         <div class="row">
-            
+
             <div class="col-md-6 form-group mb-3">
                 <label for="nombre" class="form-label">{{ __('') }}</label>
                 <input type="text" name="Nombre" class="form-control @error('Nombre') is-invalid @enderror" required
@@ -82,19 +82,7 @@
 
 
 
-            {{-- Campos comentados por el usuario --}}
-            {{-- 
-            <div class="col-md-6 form-group mb-3">
-                <label for="estado" class="form-label">{{ __('Estado') }}</label>
-                <input type="text" name="Estado" class="form-control @error('Estado') is-invalid @enderror" value="{{ old('Estado', $user?->Estado) }}" id="estado" placeholder="Estado">
-                {!! $errors->first('Estado', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-            </div>
-            <div class="col-md-6 form-group mb-3">
-                <label for="saldo" class="form-label">{{ __('Saldo') }}</label>
-                <input type="text" name="Saldo" class="form-control @error('Saldo') is-invalid @enderror" value="{{ old('Saldo', $user?->Saldo) }}" id="saldo" placeholder="Saldo">
-                {!! $errors->first('Saldo', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}
-            </div>
-            --}}
+
 
             <div class="col-md-6 form-group mb-3">
                 <label for="email" class="form-label">{{ __('') }}</label>
@@ -105,7 +93,7 @@
             </div>
             <div class="col-md-6 form-group mb-3">
                 <label for="password" class="form-label">{{ __('') }}</label>
-                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" required
+                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" 
                     value="{{ old('password') }}" id="password" placeholder="Contraseña">
 
                 {!! $errors->first('password', '<div class="invalid-feedback" role="alert"><strong>:message</strong></div>') !!}

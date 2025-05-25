@@ -51,7 +51,12 @@ class UserController extends Controller
      */
     public function store(UserRequest $request): RedirectResponse
     {
+        \Illuminate\Support\Facades\Log::info($request);
         $data = $request->validated();
+        // Imprimir en terminal/registro de logs (storage/logs/laravel.log)
+        \Illuminate\Support\Facades\Log::info('Registro de envío:');
+        \Illuminate\Support\Facades\Log::info($data);
+
 
         // Asignar valores por defecto si no vienen en la solicitud
         $data['Rol'] = $data['Rol'] ?? 'user';

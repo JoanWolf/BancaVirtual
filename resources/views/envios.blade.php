@@ -8,31 +8,29 @@
             <h2>¿A Quién Deseas Enviarle Dinero?</h2>
             <a href="{{ route('home') }}" class="btn-volver">Volver</a>
         </div>
-        {{-- Mostrar errores de validación --}}
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+
         <div class="formulario-envio">
-        <form method="POST" action="{{ route('confirmar-envios') }}">
-            @csrf
-            <label class="instruccion">Escribe la llave de quien deseas que reciba el dinero</label>
-            <input type="text" name="llave" class="input-llave" placeholder="@ejemplo123" required>
+            <form method="POST" action="{{ route('confirmar-envios') }}">
+                @csrf
+                <label class="instruccion">Escribe la llave de quien deseas que reciba el dinero</label>
+                <input type="text" name="llave"
+                    class="input-llave @error('llave') is-invalid @enderror"
+                    placeholder="@ejemplo123" value="{{ old('llave') }}" required>
+                @error('llave')
+                <div class="invalid-feedback" style="display:block; color:red;">
+                    {{ $message }}
+                </div>
+                @enderror
 
-            <small class="nota">Ten en cuenta que las llaves alfanuméricas siempre comienzan con @</small>
+                <small class="nota">Ten en cuenta que las llaves alfanuméricas siempre comienzan con @</small>
 
-            <input type="number" name="monto" class="input-cantidad" placeholder="Monto" required min="1" max="{{ Auth::user()->Saldo }}">
-            <label class="saldo-actual">Saldo disponible: ${{ number_format(Auth::user()->Saldo, 2) }}</label>
+                <input type="number" name="monto" class="input-cantidad" placeholder="Monto" required min="1" max="{{ Auth::user()->Saldo }}">
+                <label class="saldo-actual">Saldo disponible: ${{ number_format(Auth::user()->Saldo, 2) }}</label>
 
-            <textarea name="mensaje" class="descripcion" placeholder="Escribe aquí tu mensaje..." required></textarea>
+                <textarea name="mensaje" class="descripcion" placeholder="Escribe aquí tu mensaje..." required></textarea>
 
-            <button type="submit" class="btn-continuar">Continuar</button>
-        </form>
+                <button type="submit" class="btn-continuar">Continuar</button>
+            </form>
         </div>
 
     </div>

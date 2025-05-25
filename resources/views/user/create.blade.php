@@ -12,7 +12,7 @@
                     <h1 class="config-title" style="margin-top: 2%; font-size: 28px; color: #333; margin-left: 15.2%; margin-bottom:1.8% ;">Crear usuario</h1>
 
                    <div class="card-body bg-white" style="
-    
+
     width: 150%;
     max-width: 800px;
     height: 500px;
@@ -26,7 +26,7 @@
 
 
                         <form method="POST" action="{{ route('users.store') }}"  role="form" enctype="multipart/form-data">
-                            
+                            @csrf
 
                             @include('user.form')
 

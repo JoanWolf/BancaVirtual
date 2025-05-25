@@ -13,15 +13,15 @@
                         </span> --}}
 
                         {{-- <div class="float-right">
-                            
+
                         </div> --}}
                     </div>
                 </div>
-                @if ($message = Session::get('success'))
+                {{--@if ($message = Session::get('success'))
                     <div class="alert alert-success m-4">
                         <p>{{ $message }}</p>
                     </div>
-                @endif
+                @endif--}}
                 <form method="GET" action="{{ route('users') }}">
                     <div>
                         <label for="estado">Estado:</label>
@@ -55,7 +55,7 @@
                 </form>
 
                 <div class="card-body bg-white">
-                    
+
                         <div class="table-responsive">
     <table class="table table-striped table-hover">
         <thead class="thead">

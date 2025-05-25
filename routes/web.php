@@ -17,7 +17,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Recursos
-// Route::resource('users', App\Http\Controllers\UserController::class);
+
 Route::resource('llaves', App\Http\Controllers\LlafeController::class);
 Route::resource('pqrs', App\Http\Controllers\PqrController::class);
 Route::resource('transacciones', App\Http\Controllers\transaccioneController::class);

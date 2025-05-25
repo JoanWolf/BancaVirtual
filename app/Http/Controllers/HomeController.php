@@ -135,22 +135,40 @@ class HomeController extends Controller
 
     public function storeUser(Request $request)
     {
+        \Illuminate\Support\Facades\Log::info($request);
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
+            'N_Documento' => 'required|string',
+			'Nombre' => 'required|string',
+			'Apellido' => 'required|string',
+			'Fecha_Nacimiento' => 'required',
+			'Tipo_Documento' => 'required|string',
+			'Telefono' => 'required|string',
+			'email' => 'required|string',
+            'password' => 'required|string',
         ]);
 
         $requestData = $request->all();
+        // Imprimir en terminal/registro de logs (storage/logs/laravel.log)
+        \Illuminate\Support\Facades\Log::info('Registro crear:');
+        \Illuminate\Support\Facades\Log::info($requestData);
+        // Asignar valores por defecto si no vienen en la solicitud
+        $requestData['Rol'] = $requestData['Rol'] ?? 'user';
+        $requestData['Saldo'] = $requestData['Saldo'] ?? 0;
+        $requestData['Estado'] = $requestData['Estado'] ?? 1;
         $requestData['password'] = bcrypt($request->password);
 
         User::create($requestData);
-
+        // return view('home', [
+        //             'subview' => 'user.index'
+        //         ]);
         return redirect()->route('users')->with('success', 'Usuario creado exitosamente.');
     }
 
     public function editUser(User $user)
     {
+        // Imprimir en terminal/registro de logs (storage/logs/laravel.log)
+        \Illuminate\Support\Facades\Log::info('Registro editar:');
+        \Illuminate\Support\Facades\Log::info($user);
         return view('home', [
             'subview' => 'user.edit',
             'user' => $user
@@ -160,12 +178,19 @@ class HomeController extends Controller
     public function updateUser(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
+            'N_Documento' => 'required|string',
+			'Nombre' => 'required|string',
+			'Apellido' => 'required|string',
+			'Fecha_Nacimiento' => 'required',
+			'Tipo_Documento' => 'required|string',
+			'Telefono' => 'required|string',
+			'email' => 'required|string',
+            
         ]);
 
         $data = $request->all();
-
+        \Illuminate\Support\Facades\Log::info('Registro actualizar:');
+        \Illuminate\Support\Facades\Log::info($data);
         if ($request->filled('password')) {
             $data['password'] = bcrypt($request->password);
         } else {

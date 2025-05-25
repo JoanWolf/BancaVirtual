@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('users.update', $user->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                            {{ method_field('PUT') }}
                             @csrf
 
                             @include('user.form')
