@@ -15,10 +15,12 @@ class TransaccionController extends Controller
     public function confirmarEnvio(Request $request)
     {
         $request->validate([
-            'llave' => 'required',
+            'llave' =>  ['required', 'string', 'exists:llaves,valor'],
             'monto' => 'required|numeric|min:1',
             'mensaje' => 'required|string',
-        ]);
+        ], [
+        'llave.exists' => 'La llave ingresada no existe.',
+    ]);
 
         $llaveValor = $request->input('llave');
         $monto = $request->input('monto');

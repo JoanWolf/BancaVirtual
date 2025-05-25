@@ -8,7 +8,16 @@
             <h2>¿A Quién Deseas Enviarle Dinero?</h2>
             <a href="{{ route('home') }}" class="btn-volver">Volver</a>
         </div>
-
+        {{-- Mostrar errores de validación --}}
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="formulario-envio">
         <form method="POST" action="{{ route('confirmar-envios') }}">
             @csrf
