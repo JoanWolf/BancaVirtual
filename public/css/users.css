@@ -1,0 +1,155 @@
+/* -----------------------------------------
+   Estilos generales del contenedor
+------------------------------------------ */
+.container-fluid {
+    margin-top: 5%;
+    /* padding: 10px;
+    background-color: #f5f5f5; */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* -----------------------------------------
+   Card principal
+------------------------------------------ */
+.card {
+    
+    margin-top: -2%;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-left: -30px; /* Ajusta a tu gusto: puede ser negativo o positivo */
+    
+    
+}
+.table-scroll {
+    max-height: 350px;      /* Ajusta según lo que necesites */
+    overflow-y: auto;
+}
+
+
+
+.card-header {
+    background-color: transparent;
+    border-bottom: none;
+    margin-bottom: 15px;
+    padding: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Botón "Crear nuevo usuario" */
+.card-header .btn {
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+}
+
+/* -----------------------------------------
+   Formulario de filtros
+------------------------------------------ */
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+form label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+}
+
+form select {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+
+/* Botón "Filtrar" personalizado */
+form button[type="submit"]:not(.btn-delete) {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button[type="submit"]:not(.btn-delete):hover {
+    background-color: #f0f0f0;
+}
+
+
+/* -----------------------------------------
+   Tabla de usuarios
+------------------------------------------ */
+.table-responsive {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table.table {
+    width: 100%;
+    margin-top: 20px;
+    background-color: white;
+    border-collapse: collapse;
+}
+
+/* table.table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #e0e0e0;
+} */
+
+/* table.table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: middle;
+} */
+
+table.table td:last-child {
+    white-space: nowrap;
+}
+
+/* -----------------------------------------
+   Botones de acción
+------------------------------------------ */
+.btn-sm {
+    padding: 6px 10px;
+    margin-right: 5px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Botón personalizado para eliminar (rojo) */
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+    /* flex-wrap: wrap;  */
+}
