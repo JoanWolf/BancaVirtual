@@ -29,9 +29,9 @@ Route::get('/api/buscar', [App\Http\Controllers\LlafeController::class, 'buscarP
 Route::get('/home/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('home.dashboard');
 Route::get('/registro-llaves', [App\Http\Controllers\HomeController::class, 'registroLlaves'])->name('registro-llaves');
 Route::get('/llaves-registradas', [App\Http\Controllers\HomeController::class, 'llavesRegistradas'])->name('llaves-registradas');
-Route::get('/envios', [App\Http\Controllers\HomeController::class, 'envios'])->name('envios');
+// Route::get('/envios', [App\Http\Controllers\HomeController::class, 'envios'])->name('envios');
 Route::get('/confirmar-envios', [App\Http\Controllers\HomeController::class, 'confirmarEnvios'])->name('confirmar-envios');
-Route::get('/recibo-envio', [App\Http\Controllers\HomeController::class, 'reciboEnvio'])->name('recibo-envio');
+// Route::get('/recibo-envio', [App\Http\Controllers\HomeController::class, 'reciboEnvio'])->name('recibo-envio');
 Route::get('/configuracion', [App\Http\Controllers\HomeController::class, 'configuracion'])->name('configuracion')->middleware('auth');
 Route::get('/pqrs', [App\Http\Controllers\HomeController::class, 'pqrs'])->name('pqrs');
 Route::get('/users', [App\Http\Controllers\HomeController::class, 'users'])->name('users');
@@ -51,3 +51,8 @@ Route::delete('/users/{user}', [App\Http\Controllers\HomeController::class, 'des
 
 
 
+Route::get('/envios', [App\Http\Controllers\HomeController::class, 'envios'])->name('envios');
+Route::post('/confirmar-envios', [App\Http\Controllers\TransaccionController::class, 'confirmarEnvio'])->name('confirmar-envios');
+Route::post('/procesar-envio', [App\Http\Controllers\TransaccionController::class, 'procesarEnvio'])->name('procesar-envio');
+Route::get('/recibo-envio/{transaccion}', [App\Http\Controllers\TransaccionController::class, 'reciboEnvio'])->name('recibo-envio');
+Route::get('/recibo-envio/{transaccion}/pdf', [App\Http\Controllers\TransaccionController::class, 'descargarReciboPDF'])->name('recibo-envio.pdf');

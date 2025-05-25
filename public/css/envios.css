@@ -95,12 +95,13 @@ h1 {
 }
 
 
-.btn-continuar {
+a.btn-continuar,
+button.btn-continuar {
     background-color: #666;
     color: white;
     padding: 9px 15px;
-    width: fit-content;       /* Para ajustar automáticamente al contenido */
-    max-width: 100%;          /* Que nunca se pase del ancho del contenedor */
+    width: fit-content;
+    max-width: 100%;
     border: none;
     border-radius: 5px;
     font-weight: 600;
@@ -109,9 +110,21 @@ h1 {
     transition: background-color 0.3s ease;
     box-sizing: border-box;
     margin-top: 15px;
-    text-decoration: none;    /* Elimina el subrayado */
-    display: inline-block;    /* Importante para <a> con estilo de botón */
+    text-decoration: none;
+    display: inline-block;
     text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.saldo-actual {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #2e7d32; /* verde */
 }
 
 
