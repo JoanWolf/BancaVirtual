@@ -3,6 +3,7 @@
 <div class="pqrs-container">
     <h1>PQRS</h1>
 
+
     <div class="pqrs-card">
         <form id="pqrs-form" method="POST" action="{{ route('pqrs.store') }}">
             @csrf
@@ -27,5 +28,15 @@
 
             <button type="submit" class="btn-enviar">Enviar</button>
         </form>
+        <br />
+        @if (session('success'))
+        <center>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </center>
+        @endif
     </div>
+
 </div>
