@@ -1,4 +1,4 @@
-
+@if (Auth::user()->Rol == "admin" )
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
@@ -20,3 +20,4 @@
             </div>
         </div>
     </section>
+@endif

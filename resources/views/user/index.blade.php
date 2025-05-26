@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ asset('css/users.css') }}">
 
-
+@if (Auth::user()->Rol == "admin" )
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -118,3 +118,4 @@
         </div>
     </div>
 </div>
+@endif
