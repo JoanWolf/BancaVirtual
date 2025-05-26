@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Models\Pqr;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Requests\PqrRequest;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PqrCreadaMailable;
 class PqrController extends Controller
 {
     /**
@@ -52,10 +53,26 @@ class PqrController extends Controller
      */
     public function store(PqrRequest $request): RedirectResponse
     {
-        Pqr::create($request->validated());
+        $request->validate([
+            'Asunto' => 'required|string',
+            'Descripcion' => 'required|string',
+            'Estado' => 'required|string', // el tipo
+        ]);
 
-        return Redirect::route('pqrs.index')
-            ->with('success', 'Pqr created successfully.');
+        $pqr = Pqr::create([
+            'Asunto' => $request->Asunto,
+            'Descripcion' => $request->Descripcion,
+            'Estado' => $request->Estado,
+            'Fecha_Envio' => now(),
+            'Emisor_fk' => Auth::id(),
+            'Respuesta' => '',
+            'Receptor_fk' => null,
+        ]);
+
+        // Enviar correo al usuario
+        Mail::to(Auth::user()->email)->send(new PqrCreadaMailable($pqr));
+
+        return redirect()->back()->with('success', 'PQRS enviada exitosamente. Revisa tu correo.');
     }
 
     /**

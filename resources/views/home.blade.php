@@ -20,11 +20,15 @@
         <ul class="menu">
             <!-- Opción para mostrar dashboard -->
             <li><a href="{{ route('home') }}"><i class="fas fa-chart-line"></i> Home</a></li>
+            @if (Auth::user()->Rol == "user" )
             <li><a href="{{ route('registro-llaves') }}"><i class="fas fa-key"></i> Llaves</a></li>
             <li><a href="{{ route('envios') }}"><i class="fas fa-paper-plane"></i> Envíos</a></li>
             <li><a href="{{ route('configuracion') }}"><i class="fas fa-cog"></i> Configuración</a></li>
             <li><a href="{{ route('pqrs') }}"><i class="fas fa-envelope"></i> PQRS</a></li>
+            @endif
+            @if (Auth::user()->Rol == "admin" )
             <li><a href="{{ route('users') }}"><i class="fas fa-chart-line"></i> Users</a></li>
+            @endif
 
         </ul>
     </div>
@@ -47,7 +51,7 @@
 
         <!-- Aquí se inyecta el contenido dinámico -->
         @if (view()->exists($subview ?? ''))
-            @include($subview)
+        @include($subview)
         @endif
 
     </div>

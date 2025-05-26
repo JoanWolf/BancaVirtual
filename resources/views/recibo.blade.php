@@ -6,18 +6,20 @@
     <div class="recibo-card">
         <h2>Recibo</h2>
 
+
         <div class="recibo-grid">
-            <strong>Para</strong> <span>Us**** Ua****Ri****O****</span>
-            <strong>Llave</strong> <span>@Bandi99999</span>
+            <strong>Para</strong> <span>{{ $transaccion->user_receptor->Nombre }} {{ $transaccion->user_receptor->Apellido }}</span>
+            <strong>Llave</strong> <span>{{ $transaccion->llafe->Valor }}</span>
             <strong>Banco</strong> <span>Banca Digital</span>
-            <strong>Fecha</strong> <span>19/4/2025</span>
-            <strong>¿Cuánto?</strong> <span>$100.000</span>
-            <strong>Referencia</strong> <span>M5555555</span>
+            <strong>Fecha</strong> <span>{{ \Carbon\Carbon::parse($transaccion->Fecha_Envio)->format('d/m/Y') }}</span>
+            <strong>¿Cuánto?</strong> <span>${{ number_format($transaccion->Monto, 0, ',', '.') }}</span>
+            <strong>Referencia</strong> <span>{{ $transaccion->Referencia }}</span>
         </div>
 
         <div class="recibo-botones">
             <a href="{{ route('home') }}" class="btn-listo">Listo</a>
-            <a href="#" class="btn-descargar">Descargar</a>
+            <a href="{{ route('recibo-envio.pdf', $transaccion->id) }}" class="btn-descargar">Descargar</a>
         </div>
+
     </div>
 </div>

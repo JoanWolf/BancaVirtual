@@ -1,4 +1,4 @@
-
+@if (Auth::user()->Rol == "admin" )
     <section class="content container-fluid">
         <div class="">
             <div class="col-md-12">
@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body bg-white">
                         <form method="POST" action="{{ route('users.update', $user->id) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                            {{ method_field('PUT') }}
                             @csrf
 
                             @include('user.form')
@@ -20,3 +20,4 @@
             </div>
         </div>
     </section>
+@endif
