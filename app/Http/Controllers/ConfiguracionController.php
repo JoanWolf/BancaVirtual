@@ -43,10 +43,7 @@ class ConfiguracionController extends Controller
         $llavesDuplicadas[] = 'Email';
     }
 
-    // Imprimir en terminal/registro de logs (storage/logs/laravel.log)
-        \Illuminate\Support\Facades\Log::info('duplicados');
-        \Illuminate\Support\Facades\Log::info($llavesDuplicadas);
-        \Illuminate\Support\Facades\Log::info(!$request->has('confirmado'));
+    
     // Si hay duplicados y no está confirmado
     if (!empty($llavesDuplicadas) && !$request->has('confirmado')) {
         return redirect()->back()

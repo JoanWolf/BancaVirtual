@@ -23,12 +23,8 @@ class PqrRequest extends FormRequest
     {
         return [
 			'Asunto' => 'required|string',
-			'Fecha_Envio' => 'required',
-			'Estado' => 'required|string',
-			'Descripcion' => 'required|string',
-			'Respuesta' => 'string',
-			'Emisor_fk' => 'required',
-			'Receptor_fk' => 'required',
+        'Estado' => 'required|string',
+        'Descripcion' => 'required|string',
         ];
     }
 }

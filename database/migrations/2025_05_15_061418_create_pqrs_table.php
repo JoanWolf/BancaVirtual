@@ -23,7 +23,7 @@ return new class extends Migration
                 $table->unsignedBigInteger('Emisor_fk');
                 $table->foreign('Emisor_fk')->references('id')->on('users');
 
-                $table->unsignedBigInteger('Receptor_fk');
+                $table->unsignedBigInteger('Receptor_fk')->nullable();
                 $table->foreign('Receptor_fk')->references('id')->on('users');
                 $table->timestamps();
 
