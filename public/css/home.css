@@ -52,7 +52,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    overflow-y: auto; /* 👉 Habilita scroll vertical cuando sea necesario */
 }
+
 
 
 /* Menú de usuario */

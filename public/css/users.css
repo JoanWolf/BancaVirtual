@@ -1,6 +1,4 @@
-/* -----------------------------------------
-   Estilos generales del contenedor
------------------------------------------- */
+
 .container-fluid {
     margin-top: 5%;
     /* padding: 10px;
@@ -8,9 +6,7 @@
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* -----------------------------------------
-   Card principal
------------------------------------------- */
+
 .card {
     
     margin-top: -2%;
@@ -47,9 +43,7 @@
     font-weight: 500;
 }
 
-/* -----------------------------------------
-   Formulario de filtros
------------------------------------------- */
+
 form {
     display: flex;
     flex-wrap: wrap;
@@ -88,9 +82,7 @@ form button[type="submit"]:not(.btn-delete):hover {
 }
 
 
-/* -----------------------------------------
-   Tabla de usuarios
------------------------------------------- */
+
 .table-responsive {
     border-radius: 10px;
     overflow: hidden;
@@ -121,9 +113,7 @@ table.table td:last-child {
     white-space: nowrap;
 }
 
-/* -----------------------------------------
-   Botones de acción
------------------------------------------- */
+
 .btn-sm {
     padding: 6px 10px;
     margin-right: 5px;
@@ -132,7 +122,7 @@ table.table td:last-child {
     font-weight: 500;
 }
 
-/* Botón personalizado para eliminar (rojo) */
+
 .btn-delete {
     background-color: #dc3545;
     color: white;
@@ -152,4 +142,29 @@ table.table td:last-child {
     display: flex;
     gap: 8px;
     /* flex-wrap: wrap;  */
+}
+
+/* Centrado de texto */
+.table thead th,
+.table tbody td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.table-scroll {
+    max-height: 350px;
+    overflow-y: auto;
+    display: block; 
+}
+
+
+.table-scroll table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+
+.table-scroll td {
+    white-space: nowrap;
 }

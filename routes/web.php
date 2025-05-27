@@ -20,7 +20,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('llaves', App\Http\Controllers\LlafeController::class);
 Route::resource('pqrs', App\Http\Controllers\PqrController::class);
-Route::resource('transacciones', App\Http\Controllers\transaccioneController::class);
+// Route::resource('transacciones', App\Http\Controllers\transaccioneController::class);
 
 // API
 Route::get('/api/buscar', [App\Http\Controllers\LlafeController::class, 'buscarPorValor'])->name('llaves.buscar');
@@ -29,6 +29,13 @@ Route::get('/api/buscar', [App\Http\Controllers\LlafeController::class, 'buscarP
 Route::get('/home/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('home.dashboard');
 Route::get('/registro-llaves', [App\Http\Controllers\HomeController::class, 'registroLlaves'])->name('registro-llaves');
 Route::get('/llaves-registradas', [App\Http\Controllers\HomeController::class, 'llavesRegistradas'])->name('llaves-registradas');
+Route::get('/adminPqrs', [App\Http\Controllers\HomeController::class, 'adminPqrs'])->name('admin.pqrs')->middleware('auth');
+Route::get('/adminPqrs/responder', [App\Http\Controllers\HomeController::class, 'responderPqrs'])->name('pqrs.responder')->middleware('auth');
+// Route::get('/admintransacciones', [App\Http\Controllers\HomeController::class, 'admintransacciones'])->name('admin.transacciones')->middleware('auth');
+Route::get('/admintransacciones', [App\Http\Controllers\HomeController::class, 'transacciones'])->name('transacciones');
+
+
+
 // Route::get('/envios', [App\Http\Controllers\HomeController::class, 'envios'])->name('envios');
 Route::get('/confirmar-envios', [App\Http\Controllers\HomeController::class, 'confirmarEnvios'])->name('confirmar-envios');
 // Route::get('/recibo-envio', [App\Http\Controllers\HomeController::class, 'reciboEnvio'])->name('recibo-envio');

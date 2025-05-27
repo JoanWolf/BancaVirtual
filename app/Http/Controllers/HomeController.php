@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Transaccione;
 use App\Models\Llafe;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -215,4 +215,56 @@ class HomeController extends Controller
             'user' => $user
         ]);
     }
+
+    public function adminPqrs()
+{
+    return view('home', [
+        'subview' => 'admin-pqrs'
+    ]);
+}
+
+public function responderPqrs()
+{
+    return view('home', [
+        'subview' => 'resp-pqrs'
+    ]);
+}
+
+public function transaccionesEnHome()
+{
+    return view('home', ['subview' => 'transaccione.index']);
+}
+
+public function transacciones(Request $request)
+    {
+        $desde = $request->input('desde');
+        $hasta = $request->input('hasta');
+        $estado = $request->input('estado');
+
+        $query = Transaccione::query();
+
+        // Filtrar por fecha de envío
+        if ($desde) {
+            $query->whereDate('Fecha_envio', '>=', $desde);
+        }
+
+        if ($hasta) {
+            $query->whereDate('Fecha_envio', '<=', $hasta);
+        }
+
+        // Filtrar por estado
+        if ($estado) {
+            $query->where('Estado', $estado);
+        }
+
+        $transacciones = $query->paginate();
+
+            return view('home', [
+            'subview' => 'transaccione.index',
+            'transacciones' => $transacciones,
+            'i' => ($request->input('page', 1) - 1) * $transacciones->perPage()
+        ]);
+    }
+
+
 }

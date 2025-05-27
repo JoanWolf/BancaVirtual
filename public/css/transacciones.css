@@ -1,0 +1,130 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container-all{
+    margin-top: 5%;
+}
+
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    background-color: #fff;
+}
+
+.card-header {
+    background: none;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.h1 {
+    margin-top: 5%;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    margin: 20px 0;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+form label {
+    font-weight: 500;
+    margin-right: 5px;
+}
+
+form input[type="date"],
+form select,
+form input[type="text"] {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+form button,
+form a {
+    padding: 6px 16px;
+    background-color: #2f52d0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+}
+
+form a {
+    background-color: #6c757d;
+}
+
+form button:hover {
+    background-color: #2443b2;
+}
+
+form a:hover {
+    background-color: #5a6268;
+}
+
+.table-responsive {
+    max-height: 400px; 
+    overflow-y: auto; 
+    overflow-x: auto; 
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+}
+
+.table th,
+.table td {
+    text-align: center;          /* Centrado horizontal */
+    vertical-align: middle;      /* Centrado vertical */
+    padding: 12px;
+    border: 1px solid #ddd;      /* Bordes uniformes */
+    color: #333;
+    word-wrap: break-word;       /* Evita desbordes */
+    font-size: 14px;
+}
+
+.table th {
+    background-color: #f1f1f1;
+    font-weight: 600;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+.table-responsive {
+    max-height: 400px; /* Ajusta el alto máximo visible */
+    overflow-y: auto; /* Scroll vertical si se excede */
+    overflow-x: auto; /* Scroll horizontal si hay muchas columnas */
+    display: block;
+}
