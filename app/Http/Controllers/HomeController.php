@@ -6,7 +6,7 @@ use App\Models\Llafe;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\Pqr;
 class HomeController extends Controller
 {
     /**
@@ -219,17 +219,35 @@ class HomeController extends Controller
         ]);
     }
 
-    public function adminPqrs()
+    public function adminPqrs(Request $request)
 {
+    $query = Pqr::where(function ($q) {
+    $q->whereNotIn('Estado_R', ['Resuelto', 'Cancelado'])
+      ->orWhereNull('Estado_R');
+});
+
+    if ($request->filled('desde')) {
+        $query->whereDate('created_at', '>=', $request->input('desde'));
+    }
+
+    if ($request->filled('hasta')) {
+        $query->whereDate('created_at', '<=', $request->input('hasta'));
+    }
+
+    $pqrs = $query->orderBy('created_at', 'desc')->get();
     return view('home', [
-        'subview' => 'admin-pqrs'
+        'subview' => 'admin-pqrs',
+        'pqrs' => $pqrs,
     ]);
 }
 
-public function responderPqrs()
+public function responderPqrs($pqr)
 {
+    $pqr = \App\Models\Pqr::findOrFail($pqr);
+
     return view('home', [
-        'subview' => 'resp-pqrs'
+        'subview' => 'resp-pqrs',
+        'pqr' => $pqr
     ]);
 }
 

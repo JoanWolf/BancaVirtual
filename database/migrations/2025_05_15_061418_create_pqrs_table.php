@@ -18,6 +18,7 @@ return new class extends Migration
                 $table->string('Estado', 50);
                 $table->text('Descripcion');
                 $table->text('Respuesta')->nullable();
+                $table->string('Estado_R', 50);
 
 
                 $table->unsignedBigInteger('Emisor_fk');

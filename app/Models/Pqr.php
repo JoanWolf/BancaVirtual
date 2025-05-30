@@ -33,7 +33,7 @@ class Pqr extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['Asunto', 'Fecha_Envio', 'Estado', 'Descripcion', 'Respuesta', 'Emisor_fk', 'Receptor_fk'];
+    protected $fillable = ['Asunto', 'Fecha_Envio', 'Estado', 'Descripcion', 'Respuesta', 'Estado_R', 'Emisor_fk', 'Receptor_fk'];
 
 
     /**

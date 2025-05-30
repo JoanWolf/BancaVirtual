@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PqrCreadaMailable;
+use App\Mail\PqrsRespuestaMailable;
 class PqrController extends Controller
 {
     /**
@@ -34,8 +35,7 @@ class PqrController extends Controller
 
         $pqrs = $query->paginate();
 
-        return view('pqr.index', compact('pqrs'))
-            ->with('i', ($request->input('page', 1) - 1) * $pqrs->perPage());
+        return view('admin-pqrs', compact('pqrs'));
     }
 
     /**
@@ -113,4 +113,34 @@ class PqrController extends Controller
         return Redirect::route('pqrs.index')
             ->with('success', 'Pqr deleted successfully');
     }
+
+    public function adminShow($pqr)
+{
+    $pqr = Pqr::findOrFail($pqr);
+
+    return view('resp-pqrs', compact('pqr'));
 }
+
+
+ public function adminResponder(Request $request, $id)
+ {
+     $request->validate([
+         'respuesta' => 'required|string|max:1000',
+         'estado' => 'required|string|in:En Proceso,Resuelto,Cancelado',
+     ]);
+
+     $pqr = Pqr::findOrFail($id);
+
+     $pqr->Respuesta = $request->input('respuesta');
+     $pqr->Estado_R = $request->input('estado');
+     $pqr->Receptor_fk = Auth::user()->id ;
+     $pqr->save();
+
+     // Enviar correo al remitente
+     Mail::to($pqr->user_Emisor->email)->send(new PqrsRespuestaMailable($pqr));
+
+     return redirect()->route('admin.pqrs')->with('success', 'PQRS respondida y correo enviado correctamente.');
+ }
+
+}
+

@@ -30,7 +30,7 @@ Route::get('/home/dashboard', [App\Http\Controllers\HomeController::class, 'dash
 Route::get('/registro-llaves', [App\Http\Controllers\HomeController::class, 'registroLlaves'])->name('registro-llaves');
 Route::get('/llaves-registradas', [App\Http\Controllers\HomeController::class, 'llavesRegistradas'])->name('llaves-registradas');
 Route::get('/adminPqrs', [App\Http\Controllers\HomeController::class, 'adminPqrs'])->name('admin.pqrs')->middleware('auth');
-Route::get('/adminPqrs/responder', [App\Http\Controllers\HomeController::class, 'responderPqrs'])->name('pqrs.responder')->middleware('auth');
+Route::get('/adminPqrs/responder/{pqr}', [App\Http\Controllers\HomeController::class, 'responderPqrs'])->name('pqrs.admin.show')->middleware('auth');
 // Route::get('/admintransacciones', [App\Http\Controllers\HomeController::class, 'admintransacciones'])->name('admin.transacciones')->middleware('auth');
 Route::get('/admintransacciones', [App\Http\Controllers\HomeController::class, 'transacciones'])->name('transacciones');
 
@@ -63,6 +63,11 @@ Route::post('/confirmar-envios', [App\Http\Controllers\TransaccionController::cl
 Route::post('/procesar-envio', [App\Http\Controllers\TransaccionController::class, 'procesarEnvio'])->name('procesar-envio');
 Route::get('/recibo-envio/{transaccion}', [App\Http\Controllers\TransaccionController::class, 'reciboEnvio'])->name('recibo-envio');
 Route::get('/recibo-envio/{transaccion}/pdf', [App\Http\Controllers\TransaccionController::class, 'descargarReciboPDF'])->name('recibo-envio.pdf');
+
+// Ruta para responder una PQRS específica (mostrar la vista con los datos)
+
+// Ruta para guardar la respuesta del administrador y enviar correo
+Route::post('/adminPqrs/responder/{pqr}', [App\Http\Controllers\PqrController::class, 'adminResponder'])->name('pqrs.admin.responder')->middleware('auth');
 
 
 Route::put('/configuracion/actualizar', [App\Http\Controllers\ConfiguracionController::class, 'update'])
