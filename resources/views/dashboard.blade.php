@@ -18,7 +18,7 @@
             <p class="balance-title">Usuarios registrados</p>
             <div class="balance-value">
                 <i class="fas fa-dollar-sign"></i>
-                <span>${{ number_format($saldo, 0, ',', '.') }}</span>
+                <span>{{ $CantUsers}}</span>
             </div>
         </div>
 
@@ -26,7 +26,7 @@
             <p class="balance-title">Cantidad transacciones</p>
             <div class="balance-value">
                 <i class="fas fa-dollar-sign"></i>
-                <span>${{ number_format($saldo, 0, ',', '.') }}</span>
+                <span>{{$CantTransacciones}}</span>
             </div>
         </div>
 
@@ -34,7 +34,7 @@
             <p class="balance-title">Cantidad PQRs</p>
             <div class="balance-value">
                 <i class="fas fa-dollar-sign"></i>
-                <span>${{ number_format($saldo, 0, ',', '.') }}</span>
+                <span>{{$CantPqrs}}</span>
             </div>
         </div>
     </div>

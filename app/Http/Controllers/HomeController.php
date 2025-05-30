@@ -28,8 +28,11 @@ class HomeController extends Controller
     {
         // return view('home');
         $saldo = Auth::user()->Saldo; // Obtenemos el saldo del usuario logueado
+        $CantUsers = User::count(); // Contamos la cantidad de usuarios registrados
+        $CantTransacciones = Transaccione::count(); // Contamos la cantidad de transacciones realizadas
+        $CantPqrs = \App\Models\Pqr::count(); // Contamos la cantidad de PQRS registradas
         //return view('dashboard', ); // Pasamos el saldo a la vista
-        return view('home', ['subview' => 'dashboard', 'saldo' => $saldo]);
+        return view('home', ['subview' => 'dashboard', 'saldo' => $saldo,'CantUsers'=> $CantUsers, 'CantTransacciones' => $CantTransacciones, 'CantPqrs' => $CantPqrs]);
     }
 
 
@@ -185,7 +188,7 @@ class HomeController extends Controller
 			'Tipo_Documento' => 'required|string',
 			'Telefono' => 'required|string',
 			'email' => 'required|string',
-            
+
         ]);
 
         $data = $request->all();
