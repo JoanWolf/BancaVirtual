@@ -1,6 +1,10 @@
 # Release Notes
 
-## [Unreleased](https://github.com/laravel/laravel/compare/v12.0.7...12.x)
+## [Unreleased](https://github.com/laravel/laravel/compare/V.1.0.0...main)
+
+## [V.1.0.0](https://github.com/laravel/laravel/compare/v12.0.7...V.1.0.0) - 2025-05-31
+
+**Full Changelog**: https://github.com/JoanWolf/BancaVirtual/commits/V.1.0.0
 
 ## [v12.0.7](https://github.com/laravel/laravel/compare/v12.0.6...v12.0.7) - 2025-04-15
 
