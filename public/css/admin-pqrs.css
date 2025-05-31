@@ -1,6 +1,14 @@
 .pqrs-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-top: 3%;
     padding: 20px;
+}
+
+.h1 {
+    margin-top: 5%;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
 }
 
 .title {
@@ -58,4 +66,52 @@
 
 .btn-responder:hover {
     background-color: #1f52c2;
+}
+
+
+.btn-filtrar {
+    padding: 6px 16px;
+    background-color: #2f52d0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-filtrar:hover {
+    background-color: #2443b2;
+}
+
+.btn-limpiar {
+    padding: 6px 16px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-limpiar:hover {
+    background-color: #5a6268;
+}
+
+
+.btn-filtrar,
+.btn-limpiar {
+    width: auto;
+    min-width: 100px; 
+}
+
+.btn-limpiar {
+margin-left: -60%;
 }

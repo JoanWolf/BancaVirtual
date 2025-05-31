@@ -61,12 +61,12 @@
     <table class="table table-striped table-hover users-table">
         <thead>
             <tr>
-                <th>No</th>
-                <th>N Documento</th>
+                <th>N°</th>
+                <th>Id</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
-                <th>F Nacimiento</th>
-                <th>T Documento</th>
+                <th>F/N</th>
+                <th>T/D</th>
                 <th>Teléfono</th>
                 <th>Rol</th>
                 <th>Estado</th>

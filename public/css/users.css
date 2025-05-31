@@ -1,13 +1,16 @@
 .container-fluid {
     margin-top: 5%;
-    /* padding: 10px;
-    background-color: #f5f5f5; */
     font-family: 'Segoe UI', sans-serif;
+
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; 
+    flex-direction: column;  
 }
 
 
-.card {
 
+.card {
     margin-top: -2%;
     border: none;
     border-radius: 10px;
@@ -15,10 +18,15 @@
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    margin-left: -30px; /* Ajusta a tu gusto: puede ser negativo o positivo */
+    margin-left: -30px;
 
-
+    height: auto;         /* Se adapta automáticamente al contenido */
+    overflow: visible;    /* Asegura que no se recorte el contenido */
 }
+
+
+
+
 .table-scroll {
     max-height: 350px;      /* Ajusta según lo que necesites */
     overflow-y: auto;
